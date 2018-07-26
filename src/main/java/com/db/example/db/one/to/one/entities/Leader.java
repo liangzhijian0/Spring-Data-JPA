@@ -26,6 +26,11 @@ public class Leader {
     public Leader() {
     }
 
+    public Leader(String name, Klass klass) {
+        this.name = name;
+        this.klass = klass;
+    }
+
     public long getId() {
         return id;
     }

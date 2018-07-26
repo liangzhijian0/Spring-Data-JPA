@@ -13,7 +13,7 @@ public class KlassDTO {
     private final Long id;
     private final String name;
     private final ZonedDateTime createDate;
-    private final Long leadId;
+    private final LeaderDTO leader;
 
     public Long getId() {
         return id;
@@ -27,14 +27,14 @@ public class KlassDTO {
         return createDate;
     }
 
-    public Long getLeadId() {
-        return leadId;
+    public LeaderDTO getLeader() {
+        return leader;
     }
 
     public KlassDTO(Klass klass) {
         this.id = klass.getId();
         this.name = klass.getName();
         this.createDate = klass.getCreatedDate();
-        this.leadId = klass.getLeader().getId();
+        this.leader = new LeaderDTO(klass.getLeader());
     }
 }

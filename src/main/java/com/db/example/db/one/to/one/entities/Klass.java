@@ -17,8 +17,7 @@ public class Klass {
     @CreatedDate
     private ZonedDateTime createdDate = ZonedDateTime.now();
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "leader_id")
+    @OneToOne(cascade = CascadeType.ALL,mappedBy = "klass",fetch = FetchType.LAZY)
     private Leader leader;
 
     public Klass() {
