@@ -1,5 +1,6 @@
 package com.db.example.db.one.to.n.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.annotation.CreatedDate;
 
 
@@ -21,6 +22,7 @@ public class Employee {
         this.company = company;
     }
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "company_id")
     private Company company;

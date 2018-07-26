@@ -26,19 +26,23 @@ public class CompanyController {
     @Transactional
     @PostMapping(path = "",produces = MediaType.APPLICATION_JSON_VALUE)
     public Company save(@RequestBody Company company){
+        System.out.println(company);
+        System.out.println(company.getEmployeeList());
+        company.getEmployeeList().stream()
+                .forEach(employee -> employee.setCompany(company));
         return repository.save(company);
     }
 
-    @Transactional
-    @GetMapping(path = "",produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Company> findAll(){
-        return repository.findAll();
-    }
+//    @Transactional
+//    @GetMapping(path = "",produces = MediaType.APPLICATION_JSON_VALUE)
+//    public List<Company> findAll(){
+//        return repository.findAll();
+//    }
 
 //    @Transactional
-//    @GetMapping(path = "{id}",produces = MediaType.APPLICATION_JSON_VALUE)
-//    public List<Company> findAll(){
-//        return repository.findById(@PathVariable int id);
+//    @GetMapping(path = "/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+//    public  findById(){
+//        return repository.findById(@PathVariable Long id);
 //    }
 
 //    @Transactional
