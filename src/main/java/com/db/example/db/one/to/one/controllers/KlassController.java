@@ -40,9 +40,11 @@ public class KlassController {
                 .collect(Collectors.toList());
     }
 
-//    @Transactional
-//    @GetMapping (path = "/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
-//    public CompanyDTO getCompanyById(@PathVariable Long id){
-//        return new CompanyDTO(companyRepository.findById(id).get());
-//    }
+    @Transactional
+    @GetMapping (path = "/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public KlassDTO getKlassById(@PathVariable Long id){
+        Klass one = klassRepository.findById(id).get();
+        if(one == null) return null;
+        return new KlassDTO(one);
+    }
 }
