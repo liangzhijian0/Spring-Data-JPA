@@ -35,10 +35,16 @@ public class CompanyController {
         return repository.findAll();
     }
 
-    @Transactional
-    @PutMapping(path = "/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Company> changeCompany(@PathVariable int OrderId){
-        System.out.println();
-        return repository.findAll();
-    }
+//    @Transactional
+//    @GetMapping(path = "{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+//    public List<Company> findAll(){
+//        return repository.findById(@PathVariable int id);
+//    }
+
+//    @Transactional
+//    @PutMapping(path = "/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+//    public List<Company> changeCompany(@PathVariable int OrderId){
+//        System.out.println();
+//        return repository.findAll();
+//    }
 }
