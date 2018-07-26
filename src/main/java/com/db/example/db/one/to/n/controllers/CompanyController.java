@@ -2,6 +2,7 @@ package com.db.example.db.one.to.n.controllers;
 
 import com.db.example.db.one.to.n.dto.CompanyDTO;
 import com.db.example.db.one.to.n.entities.Company;
+import com.db.example.db.one.to.n.entities.Employee;
 import com.db.example.db.one.to.n.repositories.CompanyRepository;
 import com.db.example.db.one.to.n.repositories.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +52,16 @@ public class CompanyController {
         company.getEmployeeList().stream().filter(employee -> employee.getCompany() == null).forEach(employee -> {
             employee.setCompany(company);
         });
+        companyRepository.save(company);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+
+    @Transactional
+    @PutMapping(path = "/{id}/employees")
+    public ResponseEntity addEmployeeIntoCompany(@PathVariable Long id, @RequestBody Employee employee){
+        Company company = companyRepository.findById(id).get();
+        employee.setCompany(company);
+        employeeRepository.save(employee);
         companyRepository.save(company);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
