@@ -65,4 +65,12 @@ public class CompanyController {
         companyRepository.save(company);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
+
+    @Transactional
+    @DeleteMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Company delete(@PathVariable("id")Long id) {
+        Company one = companyRepository.findById(id).get();
+        companyRepository.delete(one);
+        return one;
+    }
 }
