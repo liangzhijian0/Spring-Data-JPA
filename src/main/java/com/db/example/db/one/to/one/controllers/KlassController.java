@@ -52,15 +52,21 @@ public class KlassController {
     }
 
     @Transactional
-    @PutMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity update(@PathVariable Long id,@RequestBody Leader leader) {
-        long a = id;
+    @PutMapping(path = "/{id}/leaders", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity changeLeader(@PathVariable Long id,@RequestBody Leader leader) {
         Klass klass = klassRepository.findById(id).get();
         klass.getLeader().setKlass(null);
         klass.setLeader(leader);
         leader.setKlass(klass);
         leaderRepository.save(leader);
         klassRepository.save(klass);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+
+    @Transactional
+    @PutMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity changeKlassName(@PathVariable Long id,@RequestBody Klass klass) {
+        klassRepository.findById(id).get().setName(klass.getName());
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 }
