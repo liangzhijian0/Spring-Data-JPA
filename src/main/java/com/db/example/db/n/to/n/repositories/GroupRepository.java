@@ -1,4 +1,7 @@
 package com.db.example.db.n.to.n.repositories;
 
-public class GroupRepository {
+import com.db.example.db.n.to.n.entities.Group;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface GroupRepository extends JpaRepository<Group,Long> {
 }
