@@ -2,6 +2,7 @@ package com.db.example.db.one.to.n.controllers;
 
 import com.db.example.db.one.to.n.entities.Company;
 import com.db.example.db.one.to.n.repositories.CompanyRepository;
+import com.db.example.db.one.to.n.repositories.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +19,9 @@ public class CompanyController {
     public CompanyController(CompanyRepository repository) {
         this.repository = repository;
     }
+
+    @Autowired
+    public EmployeeRepository employeeRepository;
 
     @Transactional
     @PostMapping(path = "",produces = MediaType.APPLICATION_JSON_VALUE)

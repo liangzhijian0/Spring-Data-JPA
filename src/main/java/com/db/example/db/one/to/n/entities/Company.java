@@ -2,11 +2,10 @@ package com.db.example.db.one.to.n.entities;
 
 import org.springframework.data.annotation.CreatedDate;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.ZonedDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Company {
@@ -18,6 +17,9 @@ public class Company {
 
     @CreatedDate
     private ZonedDateTime createdDate = ZonedDateTime.now();
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company", fetch = FetchType.LAZY)
+    private List<Employee> employeeList = new ArrayList<>();
 
     public Company(Long id, String name) {
         this.id = id;
@@ -43,11 +45,19 @@ public class Company {
         this.name = name;
     }
 
-    public ZonedDateTime getCreateDate() {
+    public ZonedDateTime getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreateDate(ZonedDateTime createDate) {
+    public void setCreatedDate(ZonedDateTime createDate) {
         this.createdDate = createDate;
+    }
+
+    public List<Employee> getEmployeeList() {
+        return employeeList;
+    }
+
+    public void setEmployeeList(List<Employee> employeeList) {
+        this.employeeList = employeeList;
     }
 }

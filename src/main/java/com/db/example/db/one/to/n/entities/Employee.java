@@ -1,24 +1,31 @@
 package com.db.example.db.one.to.n.entities;
 
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.Id;
+
 
 import javax.persistence.*;
 import java.time.ZonedDateTime;
 
+@Entity
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
     private String name;
+
+    @CreatedDate
+    private ZonedDateTime createdDate = ZonedDateTime.now();
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "company_id")
     private Company company;
 
-    @CreatedDate
-    private ZonedDateTime createdDate = ZonedDateTime.now();
+
 
     public Employee() {
     }
@@ -28,7 +35,7 @@ public class Employee {
         this.company = company;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
@@ -48,9 +55,7 @@ public class Employee {
         return company;
     }
 
-    public void setCompany(Company company) {
-        this.company = company;
-    }
+
 
     public ZonedDateTime getCreatedDate() {
         return createdDate;
