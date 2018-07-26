@@ -25,7 +25,7 @@ public class CompanyController {
 
     @Transactional
     @PostMapping(path = "",produces = MediaType.APPLICATION_JSON_VALUE)
-    public Company save(@RequestBody Company company){
+    public Company createCompany(@RequestBody Company company){
         System.out.println(company);
         System.out.println(company.getEmployeeList());
         company.getEmployeeList().stream()
@@ -33,11 +33,11 @@ public class CompanyController {
         return repository.save(company);
     }
 
-//    @Transactional
-//    @GetMapping(path = "",produces = MediaType.APPLICATION_JSON_VALUE)
-//    public List<Company> findAll(){
-//        return repository.findAll();
-//    }
+    @Transactional
+    @GetMapping(path = "",produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Company> GetAllCompany(){
+        return repository.findAll();
+    }
 
 //    @Transactional
 //    @GetMapping(path = "/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
