@@ -69,4 +69,12 @@ public class KlassController {
         klassRepository.findById(id).get().setName(klass.getName());
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
+
+    @Transactional
+    @DeleteMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Klass deleteKlass(@PathVariable Long id) {
+        Klass one = klassRepository.findById(id).get();
+        klassRepository.delete(one);
+        return one;
+    }
 }
