@@ -40,4 +40,11 @@ public class GroupController {
         return new GroupsDTO(one);
     }
 
+    @PutMapping("/Groups/{id}")
+    @Transactional
+    public ResponseEntity updateGroup(@RequestBody Groups groups) {
+        groupRepository.save(groups);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+
 }
