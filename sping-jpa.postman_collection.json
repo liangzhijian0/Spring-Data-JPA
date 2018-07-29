@@ -1,0 +1,539 @@
+{
+	"info": {
+		"_postman_id": "fdf219eb-596c-4f30-832b-a8e71970e850",
+		"name": "sping-jpa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"_postman_id": "e1ff5b10-51c9-41e0-b714-c93eb1f93ac9",
+			"name": "create company without employees",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"kdi\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:7070/companies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"companies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "ba07b13b-2b86-4a25-86dc-4a82736d6051",
+			"name": "get all companies",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"kdi\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:7070/companies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"companies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "9c120ee5-282c-4f58-8061-0e08558f57b5",
+			"name": "create company with employees",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"kdi\",\n\t\"employeeList\":[{\n\t\t\"name\": \"Tom\"\n\t}] \n}"
+				},
+				"url": {
+					"raw": "http://localhost:7070/companies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"companies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "fa237e77-6490-4895-9604-0e2183f65bb6",
+			"name": "get company by id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:7070/companies/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"companies",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "12225638-9187-4197-bcf7-3b526416a906",
+			"name": "update company not change employee",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"id\": 1,\n        \"name\": \"tw-oocl\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:7070/companies/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"companies",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "5f20358b-b28e-4b2c-973c-daa8718f855a",
+			"name": "add employee into company",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \n        \"name\": \"ocean\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:7070/companies/1/employees",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"companies",
+						"1",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "056fde1b-ee53-40e6-8174-4de4b7604d99",
+			"name": "delete company",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:7070/companies/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"companies",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "454b6b64-bc8b-48fe-b55c-21cca05734ef",
+			"name": "create klass with leader",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"klass1\",\n\t\"leader\":{\n\t\t\"name\":\"eial\"\n\t}\n\t\n}"
+				},
+				"url": {
+					"raw": "http://localhost:7070/klasses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"klasses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "d4f87695-78d3-4eab-bb5b-f3597f57b263",
+			"name": "get all klasses",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"klass1\",\n\t\"leader\":{\n\t\t\"name\":\"eial\"\n\t}\n\t\n}"
+				},
+				"url": {
+					"raw": "http://localhost:7070/klasses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"klasses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "da5a2cc9-2882-4e5f-84f6-0386f594b965",
+			"name": "get klass by id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"klass1\",\n\t\"leader\":{\n\t\t\"name\":\"eial\"\n\t}\n\t\n}"
+				},
+				"url": {
+					"raw": "http://localhost:7070/klasses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"klasses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "33d8f7bb-fd8e-4d95-a273-993b4456925b",
+			"name": "change leader to klass",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n\t\t\"name\":\"ocean\"\n\t\n\t\n}"
+				},
+				"url": {
+					"raw": "http://localhost:7070/klasses/1/leaders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"klasses",
+						"1",
+						"leaders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "50e6f599-3b1a-4f68-b4ee-bea452f7b8ed",
+			"name": "change klass name",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"name\":\"klass2\"\n\t\n}"
+				},
+				"url": {
+					"raw": "http://localhost:7070/klasses/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"klasses",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "5d891f72-0262-422d-8f46-f9d9f72c95ae",
+			"name": "delete klass",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:7070/klasses/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"klasses",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "8b38ca8e-f327-4e9f-a41f-1449b7fdbaa5",
+			"name": "create group",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\n{\n\t\"name\":\"ealin\"\n\t\n\t\n\t\n\t\n}"
+				},
+				"url": {
+					"raw": "http://localhost:7070/Groups",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"Groups"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "1c10ceca-6d55-40ae-a37c-70f326868e01",
+			"name": "get all groups",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"kdi\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:7070/companies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"companies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "fc43b9c3-6afd-432b-9d28-2069a45d52c8",
+			"name": "get all group by id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"kdi\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:7070/companies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"companies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "fa0ce5e8-0755-4d83-8ccf-a959331c1097",
+			"name": "delete group by id",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":1,\n\t\"name\":\"kd222groupRepositoryi\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:7070/Groups/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"Groups",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "1d1cfb16-b88d-4c9f-b015-4450114208a4",
+			"name": "update  group",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"kdi\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:7070/Groups/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"Groups",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
