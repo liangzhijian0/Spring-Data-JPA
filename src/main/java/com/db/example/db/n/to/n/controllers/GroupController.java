@@ -6,10 +6,7 @@ import com.db.example.db.n.to.n.repositories.GroupRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -34,6 +31,13 @@ public class GroupController {
     @GetMapping("/Groups")
     public List<GroupsDTO> getAllGroups(){
         return groupRepository.findAll().stream().map(item->new GroupsDTO(item)).collect(Collectors.toList());
+    }
+
+    @Transactional
+    @GetMapping("/Groups/{id}")
+    public GroupsDTO findById(@PathVariable("id")Long id){
+        Groups one = groupRepository.findById(id).get();
+        return new GroupsDTO(one);
     }
 
 }
