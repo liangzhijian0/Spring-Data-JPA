@@ -1,26 +1,24 @@
 package com.db.example.db.n.to.n.entities;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "w_group")
-public class Group {
+public class Groups {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String name;
+    @ManyToMany(cascade = CascadeType.ALL,mappedBy = "groups",targetEntity = Users.class,fetch = FetchType.LAZY)
+    private List<Users> users = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "groupList")
-    private List<User> userList;
-
-    public Group() {
+    public Groups() {
     }
 
-    public Group(String name, List<User> userList) {
+    public Groups(String name, List<Users> users) {
         this.name = name;
-        this.userList = userList;
+        this.users = users;
     }
 
     public Long getId() {
@@ -39,11 +37,11 @@ public class Group {
         this.name = name;
     }
 
-    public List<User> getUserList() {
-        return userList;
+    public List<Users> getUsers() {
+        return users;
     }
 
-    public void setUserList(List<User> userList) {
-        this.userList = userList;
+    public void setUsers(List<Users> users) {
+        this.users = users;
     }
 }
