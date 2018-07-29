@@ -47,4 +47,12 @@ public class GroupController {
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
+    @Transactional
+    @DeleteMapping("/Groups/{id}")
+    public GroupsDTO delete(@PathVariable("id")Long id){
+        Groups one = groupRepository.findById(id).get();
+        groupRepository.delete(one);
+        return new GroupsDTO(one);
+    }
+
 }
